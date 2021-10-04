@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% block content %}
+
+    <div class="header-bar">
+        <h1>Регистрация</h1>
+    </div>
+
+
+        <div class="col-md-4 col-sm-8  col-xs-12">
+            {{ form.errors }}
+            <form method="POST">
+                {% csrf_token %}
+                <label>{{ form.username.label }}</label>
+                {{ form.username }}
+
+                <label>{{ form.password1.label }}</label>
+                {{ form.password1 }}
+
+                <label>{{ form.password2.label }}</label>
+                {{ form.password2 }}
+                <input style="margin-top:10px ;" class="button" type="submit" value="Зарегистрироваться">
+            </form>
+            <p>Уже есть аккаунт? <a href="{% url 'login' %}">Войти</a></p>
+        </div>
+
+
+{% endblock content %}
