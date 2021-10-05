@@ -4,11 +4,11 @@ from .inhe import ProxySuper, ProxyManager
 from django.contrib.auth.models import User
 
 
-class Subcategory(models.Model):
-    name = models.CharField('Подкатегория', max_length=255)
-
-    def __str__(self):
-        return self.name
+# class Subcategory(models.Model):
+#     name = models.CharField('Подкатегория', max_length=255)
+#
+#     def __str__(self):
+#         return self.name
 
 
 class CategoryTypes(models.Model):
@@ -33,8 +33,8 @@ class Category(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, verbose_name='Пользователь', null=True, blank=True)
     name = models.CharField(verbose_name='Название категории', max_length=255)
     date_opened = models.DateField('Дата открытия категории', auto_now_add=True, null=True)
-    subcategory = models.ForeignKey(Subcategory, on_delete=models.SET_NULL, verbose_name='Подкатегория', null=True,
-                                    blank=True)
+#    subcategory = models.ForeignKey(Subcategory, on_delete=models.SET_NULL, verbose_name='Подкатегория', null=True,
+#                                    blank=True)
     type = models.ForeignKey(CategoryTypes, on_delete=models.PROTECT, verbose_name='Тип категории', null=True,
                              blank=True)
 
